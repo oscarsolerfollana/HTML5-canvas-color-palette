@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+   
+<body>
+    <canvas id="canvas" width="1280" height="1280"></canvas>
+</body>
+
+<script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    for (let j = 0; j < 256; j++) {
+        //red to yellow
+        for (let i = 0; i < 128; i++) {
+
+            var r = 255;
+            var g = Math.floor(i * 2);
+            var b = 0;
+
+            var f = j / 255; // desaturate by 20%
+            var L = 0.3 * r + 0.6 * g + 0.1 * b;
+            r = r + f * (L - r);
+            g = g + f * (L - g);
+            b = b + f * (L - b);
+
+            ctx.fillStyle = `rgb(
+            ${r},
+            ${g},
+            ${b})`;
+            ctx.fillRect(i, j, 1, 1);
+        }
+        //yellow to green
+        for (let i = 0; i < 128; i++) {
+
+            var r = Math.floor(255 - i * 2);
+            var g = 255;
+            var b = 0;
+
+            var f = j / 255; // desaturate by 20%
+            var L = 0.3 * r + 0.6 * g + 0.1 * b;
+            r = r + f * (L - r);
+            g = g + f * (L - g);
+            b = b + f * (L - b);
+
+            ctx.fillStyle = `rgb(
+            ${r},
+            ${g},
+            ${b})`;
+            ctx.fillRect(i + 128, j, 1, 1);
+        }
+        //green to light blue
+        for (let i = 0; i < 128; i++) {
+
+            var r = 0;
+            var g = 255;
+            var b = Math.floor(i * 2);
+
+            var f = j / 255; // desaturate by 20%
+            var L = 0.3 * r + 0.6 * g + 0.1 * b;
+            r = r + f * (L - r);
+            g = g + f * (L - g);
+            b = b + f * (L - b);
+
+            ctx.fillStyle = `rgb(
+            ${r},
+            ${g},
+            ${b})`;
+            ctx.fillRect(i + (128 * 2), j, 1, 1);
+        }
+        //light blue to blue
+        for (let i = 0; i < 128; i++) {
+
+            var r = 0;
+            var g = Math.floor(255 - i * 2);
+            var b = 255;
+
+            var f = j / 255; // desaturate by 20%
+            var L = 0.3 * r + 0.6 * g + 0.1 * b;
+            r = r + f * (L - r);
+            g = g + f * (L - g);
+            b = b + f * (L - b);
+
+            ctx.fillStyle = `rgb(
+            ${r},
+            ${g},
+            ${b})`;
+            ctx.fillRect(i + (128 * 3), j, 1, 1);
+        }
+        //blue to violet
+        for (let i = 0; i < 128; i++) {
+            var r = Math.floor(i * 2);
+            var g = 0;
+            var b = 255;
+
+            var f = j / 255; // desaturate by 20%
+            var L = 0.3 * r + 0.6 * g + 0.1 * b;
+            r = r + f * (L - r);
+            g = g + f * (L - g);
+            b = b + f * (L - b);
+
+            ctx.fillStyle = `rgb(
+            ${r},
+            ${g},
+            ${b})`;
+            ctx.fillRect(i + (128 * 4), j, 1, 1);
+        }
+    }
+</script>
+</html >
