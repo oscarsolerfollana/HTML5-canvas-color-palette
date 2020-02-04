@@ -1,1 +1,1 @@
-# HTML5-canvas-color-palette
+# HTML5 canvas color palette with javascript
